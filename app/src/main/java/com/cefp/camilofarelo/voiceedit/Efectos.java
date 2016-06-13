@@ -33,7 +33,7 @@ import android.widget.Toast;
 
 public class Efectos extends Activity implements OnClickListener {
 
-    Integer[] freqset = {8000,11025, 16000, 22050,32000, 44100,48000};
+    //Integer[] freqset = {8000,11025, 16000, 22050,32000, 44100,48000};
     private ArrayAdapter<Integer> adapter;
 
 
