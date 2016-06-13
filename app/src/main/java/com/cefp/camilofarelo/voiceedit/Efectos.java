@@ -1,35 +1,36 @@
 package com.cefp.camilofarelo.voiceedit;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Date;
+        import java.io.BufferedInputStream;
+        import java.io.BufferedOutputStream;
+        import java.io.DataInputStream;
+        import java.io.DataOutputStream;
+        import java.io.File;
+        import java.io.FileInputStream;
+        import java.io.FileNotFoundException;
+        import java.io.FileOutputStream;
+        import java.io.IOException;
+        import java.io.InputStream;
+        import java.io.OutputStream;
+        import java.util.Date;
+        import java.util.Random;
 
-import android.app.Activity;
-import android.graphics.Color;
-import android.media.AudioFormat;
-import android.media.AudioManager;
-import android.media.AudioRecord;
-import android.media.AudioTrack;
-import android.media.MediaRecorder;
-import android.os.Bundle;
-import android.os.Environment;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
-import android.widget.Toast;
+        import android.app.Activity;
+        import android.graphics.Color;
+        import android.media.AudioFormat;
+        import android.media.AudioManager;
+        import android.media.AudioRecord;
+        import android.media.AudioTrack;
+        import android.media.MediaRecorder;
+        import android.os.Bundle;
+        import android.os.Environment;
+        import android.view.View;
+        import android.view.View.OnClickListener;
+        import android.widget.ArrayAdapter;
+        import android.widget.Button;
+        import android.widget.ImageButton;
+        import android.widget.LinearLayout;
+        import android.widget.Spinner;
+        import android.widget.Toast;
 
 public class Efectos extends Activity implements OnClickListener {
 
@@ -127,7 +128,7 @@ public class Efectos extends Activity implements OnClickListener {
 
     private String startRecord(){
         //int c=1;
-        String namerecord= "test"+c;
+        String namerecord= generador_name();
 
         File file = new File(Environment.getExternalStorageDirectory(),namerecord);
 
@@ -279,5 +280,13 @@ public class Efectos extends Activity implements OnClickListener {
                 //Toast.makeText(Efectos.this, "Alvin!", Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    public String generador_name(){
+        String cadena="";
+        Random rand = new Random();
+        int n = rand.nextInt(1000000);
+        cadena= cadena+n;
+        return cadena;
     }
 }
