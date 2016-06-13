@@ -40,6 +40,8 @@ public class Efectos extends Activity implements OnClickListener {
     Button startRec, stopRec, playBack;
     ImageButton anonimus,darthvader,eructo,deedee,no_se,alvin;
     LinearLayout ll;
+    String name;
+    int c=1;
     int sampleFreq;
 
     Boolean recording;
@@ -85,7 +87,7 @@ public class Efectos extends Activity implements OnClickListener {
                 @Override
                 public void run() {
                     recording = true;
-                    startRecord();
+                    name=startRecord();
                 }
 
             });
@@ -96,6 +98,7 @@ public class Efectos extends Activity implements OnClickListener {
             stopRec.setEnabled(true);
             playBack.setEnabled(true);
             ll.setBackgroundColor(Color.RED);
+            //c++;
             //Toast.makeText(Efectos.this, "Recording", Toast.LENGTH_SHORT).show();
 
         }};
@@ -116,15 +119,17 @@ public class Efectos extends Activity implements OnClickListener {
         @Override
         public void onClick(View v) {
             playRecord();
+            c++;
             startRec.setEnabled(true);
             //Toast.makeText(Efectos.this, "Playing audio!", Toast.LENGTH_SHORT).show();
         }
     };
 
-    private void startRecord(){
-        Date createdtime=new Date();
+    private String startRecord(){
+        //int c=1;
+        String namerecord= "test"+c;
 
-        File file = new File(Environment.getExternalStorageDirectory(),"test.pcm");
+        File file = new File(Environment.getExternalStorageDirectory(),namerecord);
 
         sampleFreq = 22050;
 
@@ -162,12 +167,13 @@ public class Efectos extends Activity implements OnClickListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return namerecord;
 
     }
 
     void playRecord(){
 
-        File file = new File(Environment.getExternalStorageDirectory(), "test.pcm");
+        File file = new File(Environment.getExternalStorageDirectory(),name);
         ll.setBackgroundColor(Color.GRAY);
 
 
