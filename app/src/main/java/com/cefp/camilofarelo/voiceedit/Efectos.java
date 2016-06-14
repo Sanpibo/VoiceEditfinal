@@ -28,6 +28,7 @@ package com.cefp.camilofarelo.voiceedit;
         import android.widget.ArrayAdapter;
         import android.widget.Button;
         import android.widget.ImageButton;
+        import android.widget.ImageView;
         import android.widget.LinearLayout;
         import android.widget.Spinner;
         import android.widget.Toast;
@@ -119,10 +120,12 @@ public class Efectos extends Activity implements OnClickListener {
 
         @Override
         public void onClick(View v) {
+            //ll.setBackgroundColor(Color.GRAY);
+
             playRecord();
-            c++;
+            Toast.makeText(Efectos.this, "Playing audio!", Toast.LENGTH_SHORT).show();
             startRec.setEnabled(true);
-            //Toast.makeText(Efectos.this, "Playing audio!", Toast.LENGTH_SHORT).show();
+
         }
     };
 
@@ -175,7 +178,7 @@ public class Efectos extends Activity implements OnClickListener {
     void playRecord(){
 
         File file = new File(Environment.getExternalStorageDirectory(),name);
-        ll.setBackgroundColor(Color.GRAY);
+        //ll.setBackgroundColor(Color.GRAY);
 
 
         int shortSizeInBytes = Short.SIZE/Byte.SIZE;
